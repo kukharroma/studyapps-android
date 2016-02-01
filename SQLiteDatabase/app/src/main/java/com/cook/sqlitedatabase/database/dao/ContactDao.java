@@ -2,7 +2,6 @@ package com.cook.sqlitedatabase.database.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -10,12 +9,13 @@ import com.cook.sqlitedatabase.database.ContactSQLiteOpenHelper;
 import com.cook.sqlitedatabase.database.Tables;
 import com.cook.sqlitedatabase.model.Contact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by roma on 01.02.16.
  */
-public class ContactDao implements IContactDao{
+public class ContactDao implements IContactDao {
 
     private Context context;
 
@@ -57,21 +57,53 @@ public class ContactDao implements IContactDao{
 
     @Override
     public List<Contact> getAllContacts() {
-        return null;
+        List<Contact> contactList = new ArrayList<Contact>();
+
+        String selectQuery = "SELECT  * FROM " + Tables.CONTACTS;
+
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Contact contact = new Contact();
+                contact.setId(Integer.parseInt(cursor.getString(0)));
+                contact.setName(cursor.getString(1));
+                contact.setPhoneNumber(cursor.getString(2));
+
+                contactList.add(contact);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return contactList;
     }
 
     @Override
     public int getContactsCount() {
-        return 0;
+        String countQuery = "SELECT  * FROM " + Tables.CONTACTS;
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        return cursor.getCount();
     }
 
     @Override
     public int updateContact(Contact contact) {
-        return 0;
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(Tables.Contacts.NAME, contact.getName());
+        values.put(Tables.Contacts.PHONE_NUMBER, contact.getPhoneNumber());
+
+        return db.update(Tables.CONTACTS, values, Tables.Contacts.ID + " = ?", new String[]{String.valueOf(contact.getId())});
     }
 
     @Override
-    public void deleteContact() {
-
+    public void deleteContact(Contact contact) {
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getWritableDatabase();
+        db.delete(Tables.CONTACTS, Tables.Contacts.ID + " = ?", new String[]{String.valueOf(contact.getId())});
+        db.close();
     }
 }

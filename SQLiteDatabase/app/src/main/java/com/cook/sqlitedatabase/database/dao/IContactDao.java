@@ -13,5 +13,5 @@ public interface IContactDao {
     List<Contact> getAllContacts();
     int getContactsCount();
     int updateContact(Contact contact);
-    void deleteContact();
+    void deleteContact(Contact contact);
 }
