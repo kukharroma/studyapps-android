@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CustomContentProvider</string>
+
+    <string name="database_name">students.db</string>
+    <integer name="database_version">1</integer>
+</resources>
