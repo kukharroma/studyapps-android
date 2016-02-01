@@ -9,6 +9,6 @@ public interface Tables {
 
     interface Students{
         String NAME = "name";
-        String
+        String GRADE = "grade";
     }
 }
