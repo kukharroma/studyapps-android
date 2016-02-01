@@ -1,7 +1,8 @@
-package com.cook.sqlitedatabase;
+package com.cook.sqlitedatabase.app;
 
 import android.app.Application;
 
+import com.cook.sqlitedatabase.R;
 import com.cook.sqlitedatabase.database.DBConfig;
 
 /**
