@@ -5,9 +5,10 @@ package com.cook.customcontentprovider.database;
  */
 public interface Tables {
 
-    String STUDENTS = "STUDENTS";
+    String STUDENTS = "students";
 
     interface Students{
+        String ID = "_id";
         String NAME = "name";
         String GRADE = "grade";
     }

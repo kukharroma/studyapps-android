@@ -9,36 +9,31 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "College";
-    public static final String STUDENTS_TABLE_NAME = "students";
-    static final int DATABASE_VERSION = 1;
-    static final String CREATE_DB_TABLE =
-            " CREATE TABLE " + STUDENTS_TABLE_NAME +
-                    " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    " name TEXT NOT NULL, " +
-                    " grade TEXT NOT NULL);";
-
     public static DatabaseHelper instance;
 
     public static DatabaseHelper getInstance(Context context) {
-        if (instance == null){
+        if (instance == null) {
             return new DatabaseHelper(context);
         }
         return instance;
     }
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DBConfig.DATABASE_NAME, null, DBConfig.DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String CREATE_DB_TABLE = " CREATE TABLE " + Tables.STUDENTS +
+                        " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        Tables.Students.NAME + " TEXT NOT NULL, " +
+                        Tables.Students.GRADE + " grade TEXT NOT NULL);";
         db.execSQL(CREATE_DB_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + STUDENTS_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.STUDENTS);
         onCreate(db);
     }
 

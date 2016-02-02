@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.cook.customcontentprovider.R;
-import com.cook.customcontentprovider.provider.StudentProvider;
+import com.cook.customcontentprovider.database.Tables;
+import com.cook.customcontentprovider.provider.StudentProviderConstants;
 
 /**
  * Created by roma on 01.02.16.
@@ -25,9 +26,9 @@ public class StudentActivity extends AppCompatActivity {
 
     public void onClickAddName(View view) {
         ContentValues values = new ContentValues();
-        values.put(StudentProvider.NAME, ((EditText) findViewById(R.id.editText2)).getText().toString());
-        values.put(StudentProvider.GRADE, ((EditText) findViewById(R.id.editText3)).getText().toString());
-        Uri uri = getContentResolver().insert(StudentProvider.CONTENT_URI, values);
+        values.put(Tables.Students.NAME, ((EditText) findViewById(R.id.editText2)).getText().toString());
+        values.put(Tables.Students.GRADE, ((EditText) findViewById(R.id.editText3)).getText().toString());
+        Uri uri = getContentResolver().insert(StudentProviderConstants.CONTENT_URI, values);
         Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
     }
 
@@ -42,9 +43,9 @@ public class StudentActivity extends AppCompatActivity {
         if (c.moveToFirst()) {
             do {
                 Toast.makeText(this,
-                        c.getString(c.getColumnIndex(StudentProvider._ID)) +
-                                ", " + c.getString(c.getColumnIndex(StudentProvider.NAME)) +
-                                ", " + c.getString(c.getColumnIndex(StudentProvider.GRADE)), Toast.LENGTH_SHORT).show();
+                        c.getString(c.getColumnIndex(Tables.Students.ID)) +
+                                ", " + c.getString(c.getColumnIndex(Tables.Students.NAME)) +
+                                ", " + c.getString(c.getColumnIndex(Tables.Students.GRADE)), Toast.LENGTH_SHORT).show();
             } while (c.moveToNext());
         }
     }
