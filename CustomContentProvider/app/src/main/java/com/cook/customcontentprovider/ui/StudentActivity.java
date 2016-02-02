@@ -29,7 +29,8 @@ public class StudentActivity extends AppCompatActivity {
         values.put(Tables.Students.NAME, ((EditText) findViewById(R.id.editText2)).getText().toString());
         values.put(Tables.Students.GRADE, ((EditText) findViewById(R.id.editText3)).getText().toString());
         Uri uri = getContentResolver().insert(StudentProviderConstants.CONTENT_URI, values);
-        Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
+        if (uri != null)
+            Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
     }
 
     public void onClickRetrieveStudents(View view) {

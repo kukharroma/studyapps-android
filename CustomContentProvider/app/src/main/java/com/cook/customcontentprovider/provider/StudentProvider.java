@@ -36,12 +36,16 @@ public class StudentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH, STUDENTS);
-        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH_ID, STUDENT_ID);
+        initMatcher();
         DatabaseHelper dbHelper = DatabaseHelper.getInstance(getContext());
         db = dbHelper.getWritableDatabase();
         return (db != null);
+    }
+
+    private void initMatcher(){
+        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH, STUDENTS);
+        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH_ID, STUDENT_ID);
     }
 
     @Nullable
@@ -93,7 +97,6 @@ public class StudentProvider extends ContentProvider {
             case STUDENTS:
                 count = db.delete(Tables.STUDENTS, selection, selectionArgs);
                 break;
-
             case STUDENT_ID:
                 String id = uri.getPathSegments().get(1);
                 count = db.delete(Tables.STUDENTS, Tables.Students.ID + " = " + id +
