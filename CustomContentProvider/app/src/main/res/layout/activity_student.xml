@@ -18,12 +18,7 @@
         android:layout_alignStart="@+id/button"
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+    :
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
