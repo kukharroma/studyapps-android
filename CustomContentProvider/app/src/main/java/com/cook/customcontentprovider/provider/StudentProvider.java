@@ -79,7 +79,7 @@ public class StudentProvider extends ContentProvider {
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
 
-        if (sortOrder == null || sortOrder == "") {
+        if (sortOrder == null || TextUtils.isEmpty(sortOrder)) {
             sortOrder = Tables.Students.NAME;
         }
         Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
