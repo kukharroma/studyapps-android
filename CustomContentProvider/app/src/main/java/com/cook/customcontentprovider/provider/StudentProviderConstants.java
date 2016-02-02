@@ -15,8 +15,8 @@ public class StudentProviderConstants {
     public static final String STUDENTS_PATH = "students";
     public static final String STUDENTS_PATH_ID = "students/#";
 
-    static final int STUDENTS = 1;
-    static final int STUDENT_ID = 2;
+    public static final int STUDENTS = 1;
+    public static final int STUDENT_ID = 2;
 
 
 

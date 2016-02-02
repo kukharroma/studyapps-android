@@ -15,37 +15,33 @@ import android.text.TextUtils;
 
 import com.cook.customcontentprovider.database.DatabaseHelper;
 import com.cook.customcontentprovider.database.Tables;
+
+import java.util.HashMap;
+
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.AUTHORITY;
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.CONTENT_URI;
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.STUDENTS;
-import static com.cook.customcontentprovider.provider.StudentProviderConstants.STUDENT_ID;
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.STUDENTS_PATH;
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.STUDENTS_PATH_ID;
-import java.util.HashMap;
+import static com.cook.customcontentprovider.provider.StudentProviderConstants.STUDENT_ID;
 
 /**
  * Created by roma on 01.02.16.
  */
 public class StudentProvider extends ContentProvider {
 
-
-    private static HashMap<String, String> STUDENTS_PROJECTION_MAP;
-
-    static final UriMatcher uriMatcher;
-
-    static {
-        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH, STUDENTS);
-        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH_ID, STUDENT_ID);
-    }
-
     private SQLiteDatabase db;
+    private UriMatcher uriMatcher;
+    private static HashMap<String, String> STUDENTS_PROJECTION_MAP;
 
     @Override
     public boolean onCreate() {
+        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH, STUDENTS);
+        uriMatcher.addURI(AUTHORITY, STUDENTS_PATH_ID, STUDENT_ID);
         DatabaseHelper dbHelper = DatabaseHelper.getInstance(getContext());
         db = dbHelper.getWritableDatabase();
-        return (db == null) ? false : true;
+        return (db != null);
     }
 
     @Nullable
@@ -55,7 +51,8 @@ public class StudentProvider extends ContentProvider {
 
         if (rowID > 0) {
             Uri newUri = ContentUris.withAppendedId(CONTENT_URI, rowID);
-            getContext().getContentResolver().notifyChange(newUri, null);
+            if (getContext() != null)
+                getContext().getContentResolver().notifyChange(newUri, null);
             return newUri;
         }
 
@@ -83,7 +80,8 @@ public class StudentProvider extends ContentProvider {
         }
         Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
 
-        c.setNotificationUri(getContext().getContentResolver(), uri);
+        if (getContext() != null)
+            c.setNotificationUri(getContext().getContentResolver(), uri);
         return c;
     }
 
@@ -105,8 +103,8 @@ public class StudentProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
-
-        getContext().getContentResolver().notifyChange(uri, null);
+        if (getContext() != null)
+            getContext().getContentResolver().notifyChange(uri, null);
         return count;
     }
 
@@ -127,7 +125,8 @@ public class StudentProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+        if (getContext() != null)
+            getContext().getContentResolver().notifyChange(uri, null);
         return count;
     }
 
