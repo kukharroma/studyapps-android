@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/stopBroadcastService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/startBroadcastService"
+        android:layout_alignLeft="@+id/startBroadcastService"
+        android:layout_alignRight="@+id/startBroadcastService"
+        android:layout_alignStart="@+id/startBroadcastService"
+        android:layout_centerVertical="true"
+        android:text="Stop Service" />
+
+    <Button
+        android:id="@+id/startBroadcastService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/stopBroadcastService"
+        android:layout_centerHorizontal="true"
+        android:text="Start Service" />
+</RelativeLayout>

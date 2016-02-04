@@ -12,6 +12,10 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".ui.MainActivity">
+
+        </activity>
+
+        <activity android:name=".ui.broadcastreceiver.MainBroadcastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,6 +25,8 @@
         <service android:name=".service.not_sticky.SimpleServiceNotSticky" />
         <service android:name=".service.sticky.SimpleServiceSticky" />
         <service android:name=".service.redeliver_intent.SimpleServiceRedeliverIntent" />
+
+        <service android:name=".service.broadcast.ServiceBroadcastExample"/>
 
     </application>
 
