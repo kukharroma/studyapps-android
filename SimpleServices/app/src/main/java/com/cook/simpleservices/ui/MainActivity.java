@@ -19,8 +19,8 @@ import com.cook.simpleservices.service.sticky.SimpleServiceSticky;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = this.getClass().getSimpleName();
-    private PendingIntent pendingIntent;
     public static int PENDING_INTENT_REQUEST_CODE = 1;
+    public static String PENDING_INTENT = "pendingIntent";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_not_sticky_start: {
                 PendingIntent pendingIntent = createPendingResult(PENDING_INTENT_REQUEST_CODE, new Intent(), 0);
                 Intent intent = new Intent(this, SimpleServiceNotSticky.class);
-                intent.putExtra("pendingIntent", pendingIntent);
+                intent.putExtra(PENDING_INTENT, pendingIntent);
                 startService(intent);
                 break;
             }
@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PENDING_INTENT_REQUEST_CODE) {
             if (resultCode == RESULT_OK)
-                Log.i(TAG, "Message from  " + data.getStringExtra(SimpleServiceNotSticky.MESSAGE));
+                Log.i(TAG, " Message from --> RESULT OK ----> " + data.getStringExtra(SimpleServiceNotSticky.MESSAGE));
+            if (resultCode == RESULT_CANCELED)
+                Log.i(TAG, " Message from --> RESULT CANCELED ");
         }
     }
 }

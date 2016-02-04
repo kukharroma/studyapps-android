@@ -31,11 +31,14 @@ public class SimpleServiceNotSticky extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        PendingIntent pendingIntent = intent.getParcelableExtra("pendingIntent");
+        PendingIntent pendingIntent = intent.getParcelableExtra(MainActivity.PENDING_INTENT);
         try {
+
             Intent resultIntent = new Intent();
             resultIntent.putExtra(MESSAGE, MESSAGE);
+//            pendingIntent.send(this, MainActivity.RESULT_CANCELED, resultIntent);
             pendingIntent.send(this, MainActivity.RESULT_OK, resultIntent);
+
         } catch (PendingIntent.CanceledException e) {
             e.printStackTrace();
         }
