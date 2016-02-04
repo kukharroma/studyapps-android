@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cook.simpleservices">
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +13,14 @@
 
         <activity android:name=".ui.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <service android:name=".service.not_sticky.SimpleServiceNotSticky" />
+        <service android:name=".service.sticky.SimpleServiceSticky" />
+        <service android:name=".service.redeliver_intent.SimpleServiceRedeliverIntent" />
 
     </application>
 
