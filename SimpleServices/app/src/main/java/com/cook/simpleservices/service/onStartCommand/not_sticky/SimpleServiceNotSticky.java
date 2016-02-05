@@ -1,4 +1,4 @@
-package com.cook.simpleservices.service.not_sticky;
+package com.cook.simpleservices.service.onStartCommand.not_sticky;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.cook.simpleservices.ui.MainActivity;
+import com.cook.simpleservices.ui.onStartCommand.MainActivity;
 
 /**
  * Created by roma on 03.02.16.

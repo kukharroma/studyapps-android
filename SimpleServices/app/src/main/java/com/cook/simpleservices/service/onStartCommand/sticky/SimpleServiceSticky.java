@@ -1,4 +1,4 @@
-package com.cook.simpleservices.service.redeliver_intent;
+package com.cook.simpleservices.service.onStartCommand.sticky;
 
 import android.app.Service;
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.util.Log;
 /**
  * Created by roma on 03.02.16.
  *
- * Will start all calls startService() which didn't finish with stopSelf();
+ * Will restart after system killed this process
  */
-public class SimpleServiceRedeliverIntent extends Service{
+public class SimpleServiceSticky extends Service{
 
     private final String TAG = this.getClass().getSimpleName();
 
@@ -23,8 +23,8 @@ public class SimpleServiceRedeliverIntent extends Service{
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG, intent.getStringExtra("START_REDELIVER_INTENT"));
-        return  START_REDELIVER_INTENT;
+        Log.i(TAG, intent.getStringExtra("START_STICKY"));
+        return  START_STICKY;
     }
 
     @Override

@@ -11,22 +11,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.MainActivity">
-
-        </activity>
-
-        <activity android:name=".ui.broadcastreceiver.MainBroadcastActivity">
+        <activity android:name=".ui.serviceConnection.ServiceConnectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <service android:name=".service.not_sticky.SimpleServiceNotSticky" />
-        <service android:name=".service.sticky.SimpleServiceSticky" />
-        <service android:name=".service.redeliver_intent.SimpleServiceRedeliverIntent" />
+        <activity android:name=".ui.onStartCommand.MainActivity">
 
+        </activity>
+
+        <activity android:name=".ui.broadcastreceiver.MainBroadcastActivity">
+
+        </activity>
+
+        <!-- onStartCommand-->
+        <service android:name=".service.onStartCommand.not_sticky.SimpleServiceNotSticky" />
+        <service android:name=".service.onStartCommand.sticky.SimpleServiceSticky" />
+        <service android:name=".service.onStartCommand.redeliver_intent.SimpleServiceRedeliverIntent" />
+
+        <!-- BroadCastReceiver-->
         <service android:name=".service.broadcast.ServiceBroadcastExample"/>
+
+        <!-- ServiceConnection-->
+        <service android:name=".service.serviceConnection.ServiceConnectionService"/>
+
 
     </application>
 

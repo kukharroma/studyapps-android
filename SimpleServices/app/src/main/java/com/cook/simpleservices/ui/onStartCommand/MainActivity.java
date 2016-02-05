@@ -1,4 +1,4 @@
-package com.cook.simpleservices.ui;
+package com.cook.simpleservices.ui.onStartCommand;
 
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -8,9 +8,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.cook.simpleservices.R;
-import com.cook.simpleservices.service.not_sticky.SimpleServiceNotSticky;
-import com.cook.simpleservices.service.redeliver_intent.SimpleServiceRedeliverIntent;
-import com.cook.simpleservices.service.sticky.SimpleServiceSticky;
+import com.cook.simpleservices.service.onStartCommand.not_sticky.SimpleServiceNotSticky;
+import com.cook.simpleservices.service.onStartCommand.redeliver_intent.SimpleServiceRedeliverIntent;
+import com.cook.simpleservices.service.onStartCommand.sticky.SimpleServiceSticky;
 
 
 /**

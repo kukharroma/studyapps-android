@@ -5,5 +5,7 @@
 
     <string name="start_service">Start Service</string>
     <string name="stop_service">Stop Service</string>
+    <string name="bind">Bind Service</string>
+    <string name="unbind">UnBind Service</string>
 
 </resources>
