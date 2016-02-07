@@ -27,7 +27,7 @@ public class ServiceConnectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_connection);
 
-        intent = new Intent(this, ServiceConnectionService.class);
+        intent = new Intent("com.cook.simpleservices.service.serviceConnection.ServiceConnectionService");
 
         serviceConnection = new ServiceConnection() {
             @Override

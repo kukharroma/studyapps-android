@@ -33,7 +33,7 @@ public class ServiceConnectionService extends Service {
 
     public boolean onUnbind(Intent intent) {
         Log.i(TAG, "onUnbind()");
-        return super.onUnbind(intent);
+        return true;//завжди буде заходити в onRebind();
     }
 
     public void onDestroy() {

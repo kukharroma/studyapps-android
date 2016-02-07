@@ -18,13 +18,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.onStartCommand.MainActivity">
+        <activity android:name=".ui.onStartCommand.MainActivity"></activity>
 
-        </activity>
+        <activity android:name=".ui.broadcastreceiver.MainBroadcastActivity"></activity>
 
-        <activity android:name=".ui.broadcastreceiver.MainBroadcastActivity">
-
-        </activity>
+        <activity android:name=".ui.localbinding.LocalBindingActivity"></activity>
 
         <!-- onStartCommand-->
         <service android:name=".service.onStartCommand.not_sticky.SimpleServiceNotSticky" />
@@ -32,11 +30,13 @@
         <service android:name=".service.onStartCommand.redeliver_intent.SimpleServiceRedeliverIntent" />
 
         <!-- BroadCastReceiver-->
-        <service android:name=".service.broadcast.ServiceBroadcastExample"/>
+        <service android:name=".service.broadcast.ServiceBroadcastExample" />
 
         <!-- ServiceConnection-->
-        <service android:name=".service.serviceConnection.ServiceConnectionService"/>
+        <service android:name=".service.serviceConnection.ServiceConnectionService" />
 
+        <!-- Local Binding-->
+        <service android:name=".service.localbinding.ServiceLocalBinding"/>
 
     </application>
 
