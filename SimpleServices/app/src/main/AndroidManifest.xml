@@ -11,12 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.serviceConnection.ServiceConnectionActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.serviceConnection.ServiceConnectionActivity"></activity>
 
         <activity android:name=".ui.onStartCommand.MainActivity"></activity>
 
@@ -36,7 +31,9 @@
         <service android:name=".service.serviceConnection.ServiceConnectionService" />
 
         <!-- Local Binding-->
-        <service android:name=".service.localbinding.ServiceLocalBinding"/>
+        <service android:name=".service.localbinding.ServiceLocalBinding" />
+
+        <!-- IntentService-->
 
     </application>
 
