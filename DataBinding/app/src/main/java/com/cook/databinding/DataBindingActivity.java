@@ -15,6 +15,7 @@ public class DataBindingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding);
-        binding.setUser(new User(21, "roma", 13));
+        binding.setUser(new User("Roma", 21));
+        binding.setCustomHandler(new CustomHandler());
     }
 }

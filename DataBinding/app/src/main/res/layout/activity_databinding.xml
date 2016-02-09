@@ -2,12 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
-        <variable
-            name="user"
-            type="com.cook.databinding.User" />
-
-        <import type="com.cook.databinding.UnixDateConverter"/>
+        <variable name="user" type="com.cook.databinding.User" />
+        <variable name="customHandler" type="com.cook.databinding.CustomHandler"/>
     </data>
 
     <LinearLayout
@@ -25,6 +21,16 @@
             android:id="@+id/tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{UnixDateConverter.convert(user.age)}" />
+            android:text="@{String.valueOf(user.age)}" />
+        <Button
+            android:text="@{user.name}"
+            android:onClick="@{customHandler.onLike}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="@{user.name}"
+            android:onClick="@{customHandler.onDislike}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>
