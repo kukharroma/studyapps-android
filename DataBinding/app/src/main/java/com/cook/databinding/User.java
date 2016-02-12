@@ -8,11 +8,9 @@ public class User {
     public long birthday;
     private String name;
     private int age;
+    private String imageUrl;
 
-    public User(long birthday, String name, int age) {
-        this.birthday = birthday;
-        this.name = name;
-        this.age = age;
+    public User() {
     }
 
     public long getBirthday() {
@@ -37,5 +35,13 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
