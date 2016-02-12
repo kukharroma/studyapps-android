@@ -5,21 +5,9 @@ package com.cook.databinding;
  */
 public class User {
 
-    public long birthday;
     private String name;
     private int age;
     private String imageUrl;
-
-    public User() {
-    }
-
-    public long getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(long birthday) {
-        this.birthday = birthday;
-    }
 
     public String getName() {
         return name;

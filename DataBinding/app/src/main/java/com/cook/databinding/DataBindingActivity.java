@@ -22,6 +22,5 @@ public class DataBindingActivity extends AppCompatActivity {
         user.setName("Roma");
         binding.setUser(user);
         Log.i(this.getClass().getSimpleName(), binding.getUser().getImageUrl());
-
     }
 }
