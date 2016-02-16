@@ -63,7 +63,7 @@ public class DataBindingActivity extends AppCompatActivity {
 
     }
 
-    public  void showToast(final String message){
+    public void showToast(final String message){
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
