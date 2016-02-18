@@ -2,10 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.cook.broadcastreceiver.MyActivity.MyActivityViewModel"/>
+            type="com.cook.broadcastreceiver.MyActivity.MyActivityViewModel" />
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,12 +15,24 @@
 
         <Button
             android:id="@+id/button"
-            android:onClick="@{viewModel.onStartBroadcastReceiver}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:onClick="@{viewModel.onStartBroadcastReceiver}"
             android:text="start broadcast receiver"
-            android:layout_centerVertical="true"
+            android:layout_above="@+id/bt_send_order"
             android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Order"
+            android:onClick="@{viewModel.onSendOrderedBroadcast}"
+            android:id="@+id/bt_send_order"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/button"
+            android:layout_alignEnd="@+id/button"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button" />
     </RelativeLayout>
 </layout>

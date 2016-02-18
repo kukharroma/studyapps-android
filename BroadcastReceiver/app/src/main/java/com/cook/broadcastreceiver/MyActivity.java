@@ -19,7 +19,6 @@ public class MyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(new MyActivityViewModel());
     }
@@ -33,6 +32,12 @@ public class MyActivity extends AppCompatActivity {
         public void onStartBroadcastReceiver(View view){
             Intent intent = new Intent("TEST_BROADCAST_ACTION");
             sendBroadcast(intent);
+        }
+
+        public void onSendOrderedBroadcast(View view){
+            String requiredPermission = "com.cook.broadcastreceiver.PERMISSION";
+            Intent intent = new Intent("TEST_BROADCAST_ACTION_PRIORITY");
+            sendOrderedBroadcast(intent, requiredPermission);
         }
     }
 

@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cook.broadcastreceiver">
 
+    <permission
+        android:name="com.cook.broadcastreceiver.PERMISSION"
+        android:label="broadcastPermissions"
+        android:protectionLevel="dangerous" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +22,33 @@
 
         <receiver android:name=".MyBroadcastReceiver">
             <intent-filter>
-                <action android:name="TEST_BROADCAST_ACTION"/>
+                <action android:name="TEST_BROADCAST_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".BroadcastReceiverPrioryty1"
+            android:permission="com.cook.broadcastreceiver.PERMISSION">
+            <intent-filter android:priority="1">
+                <category android:name="com.cook.broadcastreceiver.PERMISSION" />
+                <action android:name="TEST_BROADCAST_ACTION_PRIORITY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".BroadcastReceiverPrioryty2"
+            android:permission="com.cook.broadcastreceiver.PERMISSION">
+            <intent-filter android:priority="2">
+                <category android:name="com.cook.broadcastreceiver.PERMISSION" />
+                <action android:name="TEST_BROADCAST_ACTION_PRIORITY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".BroadcastReceiverPrioryty3"
+            android:permission="com.cook.broadcastreceiver.PERMISSION">
+            <intent-filter android:priority="3">
+                <action android:name="TEST_BROADCAST_ACTION_PRIORITY" />
             </intent-filter>
         </receiver>
 
