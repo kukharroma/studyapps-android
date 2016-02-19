@@ -21,14 +21,11 @@ import java.io.InputStreamReader;
 public class InternalStorageManager {
 
     private static Context context;
-    private static InternalStorageManager instance = null;
 
     private static final String FILE_NAME = "test_file";
 
-    public static InternalStorageManager getInstance() {
-        if (instance == null)
-            instance = new InternalStorageManager();
-        return instance;
+    public static void init(Context context) {
+        InternalStorageManager.context = context;
     }
 
     public static void saveName(String name) {

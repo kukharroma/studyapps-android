@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cook.datastorage.ui.InternalStorageActivity.InternalStorageViewModel"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:text="@{viewModel.text}"
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.save}"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/laod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.get}"
+            android:text="Load" />
+
+        <Button
+            android:id="@+id/getDirCache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.getDirCache}"
+            android:text="get_Dir_Cache" />
+
+        <Button
+            android:id="@+id/getDir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.getDir}"
+            android:text="get_Dir" />
+
+        <Button
+            android:id="@+id/deleteFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.deleteFile}"
+            android:text="Delette_File" />
+
+        <Button
+            android:id="@+id/fileList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.fileList}"
+            android:text="File_List" />
+    </LinearLayout>
+</layout>
