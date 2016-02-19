@@ -1,6 +1,7 @@
 package com.cook.datastorage.internalStorage;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +23,7 @@ public class InternalStorageManager {
 
     private static Context context;
 
-    private static final String FILE_NAME = "test_file";
+    public static final String FILE_NAME = "test_file";
 
     public static void init(Context context) {
         InternalStorageManager.context = context;

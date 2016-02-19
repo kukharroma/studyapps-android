@@ -1,4 +1,4 @@
-package com.cook.datastorage.ui;
+package com.cook.datastorage.internalStorage;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
@@ -7,10 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.cook.datastorage.R;
 import com.cook.datastorage.databinding.ActivityInternalStorageBinding;
-import com.cook.datastorage.internalStorage.InternalStorageManager;
+
+import java.util.Arrays;
 
 /**
  * Created by roma on 19.02.16.
@@ -35,29 +37,30 @@ public class InternalStorageActivity extends AppCompatActivity {
         }
 
         public void save(View view) {
-            Log.i(getClass().getSimpleName(), "Name has been saved ----> " + binding.editText.getText().toString());
+            Toast.makeText(getApplicationContext(), "Text has been save", Toast.LENGTH_LONG).show();
             InternalStorageManager.saveName(binding.editText.getText().toString());
+            text.set("");
         }
 
         public void get(View view) {
-            text.set(InternalStorageManager.getName());
-            Log.i(getClass().getSimpleName(), "Name is ----> " + InternalStorageManager.getName());
+            binding.tvLoad.setText(InternalStorageManager.getName());
         }
 
         public void getDirCache(View view) {
-
+            binding.tvDirCache.setText(InternalStorageManager.getDirCache().getAbsolutePath());
         }
 
         public void getDir(View view) {
-
+            binding.tvGetDir.setText(InternalStorageManager.getDir(InternalStorageManager.FILE_NAME).getAbsolutePath());
         }
 
         public void deleteFile(View view) {
-
+            Toast.makeText(getApplicationContext(), "File has been deleted", Toast.LENGTH_LONG).show();
+            InternalStorageManager.deleteFile(InternalStorageManager.FILE_NAME);
         }
 
         public void fileList(View view) {
-
+            binding.tvFileList.setText(Arrays.toString(InternalStorageManager.fileList()));
         }
     }
 }

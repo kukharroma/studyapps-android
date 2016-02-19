@@ -5,25 +5,30 @@
 
         <variable
             name="viewModel"
-            type="com.cook.datastorage.ui.InternalStorageActivity.InternalStorageViewModel"/>
+            type="com.cook.datastorage.internalStorage.InternalStorageActivity.InternalStorageViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <EditText
-            android:text="@{viewModel.text}"
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:text="@{viewModel.text}" />
 
         <Button
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/getDirCache"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/getDirCache"
+            android:layout_below="@+id/editText"
             android:onClick="@{viewModel.save}"
             android:text="Save" />
 
@@ -31,6 +36,11 @@
             android:id="@+id/laod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/getDirCache"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/getDirCache"
+            android:layout_below="@+id/save"
             android:onClick="@{viewModel.get}"
             android:text="Load" />
 
@@ -38,6 +48,9 @@
             android:id="@+id/getDirCache"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/laod"
             android:onClick="@{viewModel.getDirCache}"
             android:text="get_Dir_Cache" />
 
@@ -45,6 +58,11 @@
             android:id="@+id/getDir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/getDirCache"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/getDirCache"
+            android:layout_below="@+id/getDirCache"
             android:onClick="@{viewModel.getDir}"
             android:text="get_Dir" />
 
@@ -52,6 +70,11 @@
             android:id="@+id/deleteFile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/getDir"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/getDir"
+            android:layout_below="@+id/getDir"
             android:onClick="@{viewModel.deleteFile}"
             android:text="Delette_File" />
 
@@ -59,7 +82,63 @@
             android:id="@+id/fileList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/deleteFile"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/deleteFile"
+            android:layout_below="@+id/deleteFile"
             android:onClick="@{viewModel.fileList}"
             android:text="File_List" />
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/getDirCache"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/laod"
+            android:layout_toEndOf="@+id/laod"
+            android:layout_toRightOf="@+id/laod"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/tvDirCache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/getDirCache"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvLoad"
+            android:layout_toRightOf="@+id/getDirCache"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/tvGetDir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignTop="@+id/getDir"
+            android:layout_toRightOf="@+id/getDir"
+            android:layout_above="@+id/deleteFile"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/tvFileList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/fileList"
+            android:layout_toEndOf="@+id/fileList"
+            android:layout_alignTop="@+id/fileList" />
+
+    </RelativeLayout>
 </layout>
