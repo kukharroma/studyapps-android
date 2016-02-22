@@ -37,7 +37,7 @@ public class InternalStorageActivity extends AppCompatActivity {
         }
 
         public void save(View view) {
-            Toast.makeText(getApplicationContext(), "Text has been save", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Text has been saved", Toast.LENGTH_LONG).show();
             InternalStorageManager.saveName(binding.editText.getText().toString());
             text.set("");
         }
@@ -46,12 +46,15 @@ public class InternalStorageActivity extends AppCompatActivity {
             binding.tvLoad.setText(InternalStorageManager.getName());
         }
 
-        public void getDirCache(View view) {
-            binding.tvDirCache.setText(InternalStorageManager.getDirCache().getAbsolutePath());
+        public void getDir(View view) {
+            Log.i(getClass().getSimpleName(), InternalStorageManager.getDir(InternalStorageManager.FILE_NAME).getAbsolutePath());
+            binding.tvGetDir.setText(InternalStorageManager.getDir(InternalStorageManager.FILE_NAME).getAbsolutePath());
         }
 
-        public void getDir(View view) {
-            binding.tvGetDir.setText(InternalStorageManager.getDir(InternalStorageManager.FILE_NAME).getAbsolutePath());
+
+        public void getDirCache(View view) {
+            Log.i(getClass().getSimpleName(),InternalStorageManager.getDirCache().getAbsolutePath());
+            binding.tvDirCache.setText(InternalStorageManager.getDirCache().getAbsolutePath());
         }
 
         public void deleteFile(View view) {
@@ -60,6 +63,7 @@ public class InternalStorageActivity extends AppCompatActivity {
         }
 
         public void fileList(View view) {
+            Log.i(getClass().getSimpleName(), Arrays.toString(InternalStorageManager.fileList()));
             binding.tvFileList.setText(Arrays.toString(InternalStorageManager.fileList()));
         }
     }
