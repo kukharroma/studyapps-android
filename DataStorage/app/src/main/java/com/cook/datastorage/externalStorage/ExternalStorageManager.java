@@ -1,18 +1,15 @@
 package com.cook.datastorage.externalStorage;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.cook.datastorage.helper.FileHelper;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * Created by roma on 19.02.16.
@@ -21,7 +18,7 @@ public class ExternalStorageManager {
 
     private static Context context;
     private static final String TAG = "ExternalStorageManager";
-    private static final String EXTERNAL_FILE_NAME = "EXTERNAL_FILE_NAME";
+    private static final String EXTERNAL_FILE_NAME = "EXTERNAL_FILE_NAME.txt";
 
     public static void init(Context context) {
         ExternalStorageManager.context = context;
@@ -64,12 +61,28 @@ public class ExternalStorageManager {
         return file;
     }
 
+    /**
+     * @return
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static File getExternalDir() {
-        return context.getExternalFilesDir(EXTERNAL_FILE_NAME);
+        File file = new File(context.getExternalMediaDirs()[1].getAbsolutePath(), EXTERNAL_FILE_NAME);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return file;
     }
 
     public static File getExternalCacheDir() {
-        return context.getExternalCacheDir();
+        File file = new File(context.getExternalCacheDir(), EXTERNAL_FILE_NAME);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file;
     }
 
     public static void saveInExternalDir(String text) {

@@ -35,7 +35,7 @@ public class FileHelper {
             }
             reader.close();
         } catch (IOException e) {
-
+            System.out.println(e.toString());
         }
         return name.toString();
     }

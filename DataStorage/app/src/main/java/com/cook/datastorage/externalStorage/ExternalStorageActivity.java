@@ -3,22 +3,23 @@ package com.cook.datastorage.externalStorage;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.cook.datastorage.R;
 import com.cook.datastorage.databinding.ActivityExternalStorageBinding;
 import com.cook.datastorage.helper.FileHelper;
-import com.cook.datastorage.internalStorage.InternalStorageManager;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * Created by roma on 19.02.16.
  */
 public class ExternalStorageActivity extends AppCompatActivity {
+
+    private final String TAG = this.getClass().getSimpleName();
 
     private ActivityExternalStorageBinding binding;
 
@@ -38,14 +39,29 @@ public class ExternalStorageActivity extends AppCompatActivity {
         public ObservableField<String> tvLoadExternalCacheDir = new ObservableField<>();
 
         public ExternalStorageViewModel() {
+
+            // todo /storage/emulated/0
+            Log.i(TAG, "" + Environment.getExternalStorageDirectory().getAbsolutePath());
+
+            // todo /system
+            Log.i(TAG, "" + Environment.getRootDirectory().getAbsolutePath());
+
+            // todo /storage/emulated/0/Android/media/com.cook.datastorage - creates automatically after call this method
+            // todo /storage/external_SD/Android/media/com.cook.datastorage - creates automatically after call this method
+            for (int i = 0; i < getExternalMediaDirs().length; i++) {
+                Log.i(TAG, "" + getExternalMediaDirs()[i].getAbsolutePath());
+            }
+
         }
 
         public void getDir(View view) {
             tvExternalDir.set(ExternalStorageManager.getExternalDir().getAbsolutePath());
+            Log.i(TAG, "dir ---> " + tvExternalDir.get());
         }
 
         public void getCahceDir(View view) {
-            tvExternalDir.set(ExternalStorageManager.getExternalCacheDir().getAbsolutePath());
+            Log.i(TAG, "dir ---> " + tvExternalCacheDir.get());
+            tvExternalCacheDir.set(ExternalStorageManager.getExternalCacheDir().getAbsolutePath());
         }
 
         public void saveInExternalDir(View view) {
