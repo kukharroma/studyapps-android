@@ -40,17 +40,17 @@ public class ExternalStorageActivity extends AppCompatActivity {
 
         public ExternalStorageViewModel() {
 
-            // todo /storage/emulated/0
-            Log.i(TAG, "" + Environment.getExternalStorageDirectory().getAbsolutePath());
-
-            // todo /system
-            Log.i(TAG, "" + Environment.getRootDirectory().getAbsolutePath());
-
-            // todo /storage/emulated/0/Android/media/com.cook.datastorage - creates automatically after call this method
-            // todo /storage/external_SD/Android/media/com.cook.datastorage - creates automatically after call this method
-            for (int i = 0; i < getExternalMediaDirs().length; i++) {
-                Log.i(TAG, "" + getExternalMediaDirs()[i].getAbsolutePath());
-            }
+//            // todo /storage/emulated/0
+//            Log.i(TAG, "" + Environment.getExternalStorageDirectory().getAbsolutePath());
+//
+//            // todo /system
+//            Log.i(TAG, "" + Environment.getRootDirectory().getAbsolutePath());
+//
+//            // todo /storage/emulated/0/Android/media/com.cook.datastorage - creates automatically after call this method
+//            // todo /storage/external_SD/Android/media/com.cook.datastorage - creates automatically after call this method
+//            for (int i = 0; i < getExternalMediaDirs().length; i++) {
+//                Log.i(TAG, "" + getExternalMediaDirs()[i].getAbsolutePath());
+//            }
 
         }
 

@@ -19,6 +19,7 @@ public class ExternalStorageManager {
     private static Context context;
     private static final String TAG = "ExternalStorageManager";
     private static final String EXTERNAL_FILE_NAME = "EXTERNAL_FILE_NAME.txt";
+    private static final int SD_CARD_POSITION = 1;
 
     public static void init(Context context) {
         ExternalStorageManager.context = context;
@@ -29,10 +30,7 @@ public class ExternalStorageManager {
      */
     public static boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state);
     }
 
     /**
@@ -40,11 +38,8 @@ public class ExternalStorageManager {
      */
     public static boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-            return true;
-        }
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
     /**
@@ -66,7 +61,8 @@ public class ExternalStorageManager {
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static File getExternalDir() {
-        File file = new File(context.getExternalMediaDirs()[1].getAbsolutePath(), EXTERNAL_FILE_NAME);
+        File file = new File("/storage/external_SD/Android/media/com.cook.datastorage", EXTERNAL_FILE_NAME);
+//        File file = new File(context.getExternalMediaDirs()[SD_CARD_POSITION].getAbsolutePath(), EXTERNAL_FILE_NAME);
         if (!file.exists()) {
             try {
                 file.createNewFile();
