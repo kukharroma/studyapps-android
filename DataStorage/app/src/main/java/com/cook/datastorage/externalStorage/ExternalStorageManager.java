@@ -5,6 +5,8 @@ import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+import com.cook.datastorage.helper.FileHelper;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,9 +19,9 @@ import java.io.InputStreamReader;
  */
 public class ExternalStorageManager {
 
+    private static Context context;
     private static final String TAG = "ExternalStorageManager";
     private static final String EXTERNAL_FILE_NAME = "EXTERNAL_FILE_NAME";
-    private static Context context;
 
     public static void init(Context context) {
         ExternalStorageManager.context = context;
@@ -50,9 +52,6 @@ public class ExternalStorageManager {
 
     /**
      * Creates a directory for a new photo album in the public pictures directory:
-     *
-     * @param albumName
-     * @return
      */
     public static File getAlbumStorageDir(String albumName) {
         File f = Environment.getExternalStoragePublicDirectory(null);
@@ -74,48 +73,20 @@ public class ExternalStorageManager {
     }
 
     public static void saveInExternalDir(String text) {
-        save(text, getExternalDir());
+        FileHelper.saveInFile(text, getExternalDir());
     }
 
     public static String loadExternalDir() {
-        return load(getExternalDir());
+        return FileHelper.loadFromFile(getExternalDir());
     }
 
     public static void saveInExternalCacheDir(String text) {
-        save(text, getExternalCacheDir());
+        FileHelper.saveInFile(text, getExternalCacheDir());
     }
 
     public static String loadInternalCacheDir() {
-        return load(getExternalCacheDir());
+        return FileHelper.loadFromFile(getExternalCacheDir());
     }
-
-    private static void save(String text, File file) {
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            fos.write(text.getBytes());
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static String load(File file) {
-        StringBuilder name = new StringBuilder();
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(file);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                name.append(line);
-            }
-            reader.close();
-        } catch (IOException e) {
-
-        }
-        return name.toString();
-    }
-
 
 
 }
