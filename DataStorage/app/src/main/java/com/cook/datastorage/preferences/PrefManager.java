@@ -25,11 +25,11 @@ public class PrefManager {
         return instance;
     }
 
-    public static void saveName(String name) {
+    public static void saveData(String name) {
         preferences.edit().putString(KEY_NAME, name).apply();
     }
 
-    public static String getName(){
+    public static String getData(){
         return preferences.getString(KEY_NAME, "");
     }
 }
