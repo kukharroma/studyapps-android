@@ -51,7 +51,6 @@ public class InternalStorageActivity extends AppCompatActivity {
             binding.tvGetDir.setText(InternalStorageManager.getDir(InternalStorageManager.FILE_NAME).getAbsolutePath());
         }
 
-
         public void getDirCache(View view) {
             Log.i(getClass().getSimpleName(),InternalStorageManager.getDirCache().getAbsolutePath());
             binding.tvDirCache.setText(InternalStorageManager.getDirCache().getAbsolutePath());

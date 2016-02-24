@@ -1,11 +1,13 @@
 package com.cook.datastorage;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.cook.datastorage.databinding.ActivityMainBinding;
 import com.cook.datastorage.externalStorage.ExternalStorageActivity;
 import com.cook.datastorage.internalStorage.InternalStorageActivity;
 import com.cook.datastorage.preferences.PrefActivity;
@@ -16,11 +18,14 @@ import com.cook.datastorage.sqlite.SqliteActivity;
  */
 public class MainActivity extends AppCompatActivity {
 
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setViewModel(new MainViewModel());
     }
 
     public class MainViewModel {
