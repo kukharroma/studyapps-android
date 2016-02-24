@@ -30,8 +30,6 @@ public class ExternalStorageActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_external_storage);
         binding.setViewModel(new ExternalStorageViewModel());
         ExternalStorageManager.init(getApplicationContext());
-        ((Toolbar) findViewById(R.id.toolbar)).setTitle("External Storage");
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
 
     public class ExternalStorageViewModel {
