@@ -11,7 +11,7 @@ public class ContactSQLiteOpenHelper extends SQLiteOpenHelper {
 
     private static ContactSQLiteOpenHelper instance;
 
-    public static ContactSQLiteOpenHelper getInstace(Context context) {
+    public static ContactSQLiteOpenHelper getInstance(Context context) {
         if (instance == null) {
             instance = new ContactSQLiteOpenHelper(context);
         }

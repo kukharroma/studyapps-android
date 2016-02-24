@@ -25,7 +25,7 @@ public class ContactDao implements IContactDao {
 
     @Override
     public void addContact(Contact contact) {
-        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getWritableDatabase();
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstance(context).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(Tables.Contacts.NAME, contact.getName());
@@ -37,7 +37,7 @@ public class ContactDao implements IContactDao {
 
     @Override
     public Contact getContact(int id) {
-        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getReadableDatabase();
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstance(context).getReadableDatabase();
 
         Cursor cursor = db.query(Tables.CONTACTS, new String[]{
                         Tables.Contacts.ID,
@@ -61,7 +61,7 @@ public class ContactDao implements IContactDao {
 
         String selectQuery = "SELECT  * FROM " + Tables.CONTACTS;
 
-        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getReadableDatabase();
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstance(context).getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
@@ -82,7 +82,7 @@ public class ContactDao implements IContactDao {
     @Override
     public int getContactsCount() {
         String countQuery = "SELECT  * FROM " + Tables.CONTACTS;
-        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getReadableDatabase();
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstance(context).getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
 
@@ -91,7 +91,7 @@ public class ContactDao implements IContactDao {
 
     @Override
     public int updateContact(Contact contact) {
-        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getWritableDatabase();
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstance(context).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(Tables.Contacts.NAME, contact.getName());
@@ -102,7 +102,7 @@ public class ContactDao implements IContactDao {
 
     @Override
     public void deleteContact(Contact contact) {
-        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstace(context).getWritableDatabase();
+        SQLiteDatabase db = ContactSQLiteOpenHelper.getInstance(context).getWritableDatabase();
         db.delete(Tables.CONTACTS, Tables.Contacts.ID + " = ?", new String[]{String.valueOf(contact.getId())});
         db.close();
     }

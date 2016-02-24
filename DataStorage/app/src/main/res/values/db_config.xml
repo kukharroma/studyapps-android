@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="database_version">1</integer>
+    <string name="database_name">contact.db</string>
+</resources>
