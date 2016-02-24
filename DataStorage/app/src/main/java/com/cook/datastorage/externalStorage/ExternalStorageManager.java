@@ -18,7 +18,8 @@ public class ExternalStorageManager {
 
     private static Context context;
     private static final String TAG = "ExternalStorageManager";
-    private static final String EXTERNAL_FILE_NAME = "EXTERNAL_FILE_NAME.txt";
+    private static final String EXTERNAL_FILE_NAME = "test.txt";
+    private static final int LOCALE_STORAGE_POSITION = 0;
     private static final int SD_CARD_POSITION = 1;
 
     public static void init(Context context) {
@@ -56,13 +57,9 @@ public class ExternalStorageManager {
         return file;
     }
 
-    /**
-     * @return
-     */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static File getExternalDir() {
-        File file = new File("/storage/external_SD/Android/media/com.cook.datastorage", EXTERNAL_FILE_NAME);
-//        File file = new File(context.getExternalMediaDirs()[SD_CARD_POSITION].getAbsolutePath(), EXTERNAL_FILE_NAME);
+        File file = new File(context.getExternalMediaDirs()[LOCALE_STORAGE_POSITION].getAbsolutePath(), EXTERNAL_FILE_NAME);
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -73,10 +70,41 @@ public class ExternalStorageManager {
         return file;
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static File getExternalCacheDir() {
-        File file = new File(context.getExternalCacheDir(), EXTERNAL_FILE_NAME);
+        File file = new File(context.getExternalCacheDirs()[LOCALE_STORAGE_POSITION], EXTERNAL_FILE_NAME);
         if (!file.exists()) {
-            file.mkdirs();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return file;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static File getExternalSdCardDir() {
+        File file = new File(context.getExternalMediaDirs()[SD_CARD_POSITION].getAbsolutePath(), EXTERNAL_FILE_NAME);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return file;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static File getExternalSdCardCacheDir() {
+        File file = new File(context.getExternalCacheDirs()[SD_CARD_POSITION], EXTERNAL_FILE_NAME);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return file;
     }
@@ -93,8 +121,24 @@ public class ExternalStorageManager {
         FileHelper.saveInFile(text, getExternalCacheDir());
     }
 
-    public static String loadInternalCacheDir() {
+    public static String loadExternalCacheDir() {
         return FileHelper.loadFromFile(getExternalCacheDir());
+    }
+
+    public static void saveInExternalSdCardDir(String text) {
+        FileHelper.saveInFile(text, getExternalSdCardDir());
+    }
+
+    public static String loadExternalSdCardDir() {
+        return FileHelper.loadFromFile(getExternalSdCardDir());
+    }
+
+    public static void saveInExternalSdCardCacheDir(String text) {
+        FileHelper.saveInFile(text, getExternalSdCardCacheDir());
+    }
+
+    public static String loadExternalSdCardCacheDir() {
+        return FileHelper.loadFromFile(getExternalSdCardCacheDir());
     }
 
 

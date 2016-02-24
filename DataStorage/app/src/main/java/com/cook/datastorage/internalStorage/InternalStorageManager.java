@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 /**
  * Created by roma on 18.02.16.
  * <p/>
- * You can saveInExternalDir files directly on the device's internal storage.
+ * You can saveInExternalSdCardDir files directly on the device's internal storage.
  * By default, files saved to the internal storage are private to your
  * application and other applications cannot access them (nor can the user).
  * When the user uninstalls your application, these files are removed.

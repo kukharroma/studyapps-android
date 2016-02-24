@@ -3,7 +3,6 @@ package com.cook.datastorage.externalStorage;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,6 +27,7 @@ public class ExternalStorageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_external_storage);
         binding.setViewModel(new ExternalStorageViewModel());
+        ExternalStorageManager.init(getApplicationContext());
     }
 
     public class ExternalStorageViewModel {
@@ -55,7 +55,7 @@ public class ExternalStorageActivity extends AppCompatActivity {
         }
 
         public void getDir(View view) {
-            tvExternalDir.set(ExternalStorageManager.getExternalDir().getAbsolutePath());
+            tvExternalDir.set(ExternalStorageManager.getExternalSdCardDir().getAbsolutePath());
             Log.i(TAG, "dir ---> " + tvExternalDir.get());
         }
 
@@ -64,14 +64,24 @@ public class ExternalStorageActivity extends AppCompatActivity {
             tvExternalCacheDir.set(ExternalStorageManager.getExternalCacheDir().getAbsolutePath());
         }
 
-        public void saveInExternalDir(View view) {
+        public void saveInExternalSdCardDir(View view) {
             Toast.makeText(getApplicationContext(), "Text has been saved", Toast.LENGTH_LONG).show();
-            ExternalStorageManager.saveInExternalDir(binding.etFileData.getText().toString());
+            ExternalStorageManager.saveInExternalSdCardDir(binding.etFileData.getText().toString());
+            data.set("");
+        }
+
+        public void loadExternalSdCardDir(View view) {
+            tvLoadExternalDir.set(FileHelper.loadFromFile(ExternalStorageManager.getExternalSdCardDir()));
+        }
+
+        public void saveInExternaldDir(View view) {
+            Toast.makeText(getApplicationContext(), "Text has been saved", Toast.LENGTH_LONG).show();
+            ExternalStorageManager.saveInExternalSdCardDir(binding.etFileData.getText().toString());
             data.set("");
         }
 
         public void loadExternalDir(View view) {
-            tvLoadExternalDir.set(FileHelper.loadFromFile(ExternalStorageManager.getExternalDir()));
+            tvLoadExternalDir.set(FileHelper.loadFromFile(ExternalStorageManager.getExternalSdCardDir()));
         }
 
         public void saveInExternalCacheDir(View view) {
@@ -81,7 +91,7 @@ public class ExternalStorageActivity extends AppCompatActivity {
         }
 
         public void loadExternalCahceDir(View view) {
-            tvLoadExternalDir.set(FileHelper.loadFromFile(ExternalStorageManager.getExternalCacheDir()));
+            tvLoadExternalCacheDir.set(FileHelper.loadFromFile(ExternalStorageManager.getExternalCacheDir()));
         }
 
     }
