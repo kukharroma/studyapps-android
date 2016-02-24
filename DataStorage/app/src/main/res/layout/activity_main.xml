@@ -19,7 +19,7 @@
             android:id="@+id/bt_prefs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{viewModel.showPrefsActivity}"
+            android:onClick="@{viewModel.showPrefsStorageActivity}"
             android:text="preferences" />
 
         <Button
@@ -35,7 +35,7 @@
             android:text="external storage" />
 
         <Button
-            android:onClick="@{viewModel.showPrefsStorageActivity}"
+            android:onClick="@{viewModel.showSqliteStorageActivity}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="sqlite" />
