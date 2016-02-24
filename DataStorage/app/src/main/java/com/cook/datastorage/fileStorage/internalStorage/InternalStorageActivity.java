@@ -1,4 +1,4 @@
-package com.cook.datastorage.internalStorage;
+package com.cook.datastorage.fileStorage.internalStorage;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;

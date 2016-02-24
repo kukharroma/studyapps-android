@@ -1,4 +1,4 @@
-package com.cook.datastorage.externalStorage;
+package com.cook.datastorage.fileStorage.externalStorage;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.cook.datastorage.R;
 import com.cook.datastorage.databinding.ActivityExternalStorageBinding;
-import com.cook.datastorage.helper.FileHelper;
+import com.cook.datastorage.fileStorage.helper.FileHelper;
+
 
 /**
  * Created by roma on 19.02.16.

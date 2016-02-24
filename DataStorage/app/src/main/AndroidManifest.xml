@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".externalStorage.ExternalStorageActivity" />
-        <activity android:name=".internalStorage.InternalStorageActivity" />
+        <activity android:name=".fileStorage.externalStorage.ExternalStorageActivity" />
+        <activity android:name=".fileStorage.internalStorage.InternalStorageActivity" />
         <activity android:name=".preferences.PrefActivity" />
         <activity android:name=".sqlite.SqliteActivity" />
 

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.cook.datastorage.externalStorage.ExternalStorageActivity.ExternalStorageViewModel" />
+            type="com.cook.datastorage.fileStorage.externalStorage.ExternalStorageActivity.ExternalStorageViewModel" />
     </data>
 
     <LinearLayout

@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.cook.datastorage.databinding.ActivityMainBinding;
-import com.cook.datastorage.externalStorage.ExternalStorageActivity;
-import com.cook.datastorage.internalStorage.InternalStorageActivity;
+import com.cook.datastorage.fileStorage.externalStorage.ExternalStorageActivity;
+import com.cook.datastorage.fileStorage.internalStorage.InternalStorageActivity;
 import com.cook.datastorage.preferences.PrefActivity;
 import com.cook.datastorage.sqlite.SqliteActivity;
 

@@ -1,4 +1,4 @@
-package com.cook.datastorage.externalStorage;
+package com.cook.datastorage.fileStorage.externalStorage;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
-import com.cook.datastorage.helper.FileHelper;
+import com.cook.datastorage.fileStorage.helper.FileHelper;
 
 import java.io.File;
 import java.io.IOException;
