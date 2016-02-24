@@ -39,8 +39,6 @@ public class ExternalStorageActivity extends AppCompatActivity {
         public ObservableField<String> tvExternalCacheDir = new ObservableField<>();
         public ObservableField<String> tvExternalSdCardDir = new ObservableField<>();
         public ObservableField<String> tvExternalSdcardCacheDir = new ObservableField<>();
-        public ObservableField<String> tvLoadExternalDir = new ObservableField<>();
-        public ObservableField<String> tvLoadExternalCacheDir = new ObservableField<>();
 
         public ExternalStorageViewModel() {
 
