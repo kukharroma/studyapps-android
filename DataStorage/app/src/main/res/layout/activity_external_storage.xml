@@ -1,139 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.cook.datastorage.externalStorage.ExternalStorageActivity.ExternalStorageViewModel"/>
+            type="com.cook.datastorage.externalStorage.ExternalStorageActivity.ExternalStorageViewModel" />
     </data>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etFileData"
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@{viewModel.data}" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <Button
-            android:id="@+id/btGetExternalDir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/etFileData"
-            android:layout_centerHorizontal="true"
-            android:onClick="@{viewModel.getDir}"
-            android:text="get_external_dir" />
 
-        <Button
-            android:id="@+id/btGetExternalCacheDir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_external_dir"
-            android:layout_centerHorizontal="true"
-            android:onClick="@{viewModel.getCahceDir}"
-            android:text="get_external_cahce_dir" />
+        </android.support.v7.widget.Toolbar>
 
-        <Button
-            android:id="@+id/btSaveInExternalDir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_extrnal_cache_dir"
-            android:onClick="@{viewModel.saveInExternalDir}"
-            android:text="save_In_External_Dir" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btLoadExternalDir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/btSaveInExternalDir"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/btSaveInExternalDir"
-            android:layout_below="@+id/btSaveInExternalDir"
-            android:onClick="@{viewModel.loadExternalDir}"
-            android:text="load_external_dir" />
+            <EditText
+                android:id="@+id/edFileData"
+                layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@{viewModel.data}" />
 
-        <Button
-            android:id="@+id/btSaveInExternalCacheDir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btLoadExternalDir"
-            android:onClick="@{viewModel.saveInExternalCacheDir}"
-            android:text="save_in_exteranal_cache_dir" />
+            <Button
+                android:id="@+id/btExternalDir"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btExternalCacheDir"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/btExternalCacheDir"
+                android:layout_below="@+id/edFileData"
+                android:onClick="@{viewModel.getExternalDir}"
+                android:text="dir" />
 
-        <Button
-            android:id="@+id/btLoadExternalCacheDir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/btSaveInExternalCacheDir"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/btSaveInExternalCacheDir"
-            android:layout_below="@+id/btSaveInExternalCacheDir"
-            android:onClick="@{viewModel.loadExternalCahceDir}"
-            android:text="load_external_cache_dir" />
+            <Button
+                android:id="@+id/btExternalCacheDir"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btExternalDir"
+                android:onClick="@{viewModel.getExternalCacheDir}"
+                android:text="cache dir" />
 
-        <TextView
+            <Button
+                android:id="@+id/btExrernalSdCardDir"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btExternalCacheDir"
+                android:onClick="@{viewModel.getExternalSdCardDir}"
+                android:text="sd card dir" />
 
-            android:id="@+id/tv_external_dir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btGetExternalDir"
-            android:gravity="center"
-            android:text="@{viewModel.tvExternalDir}"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <Button
+                android:id="@+id/btExternalSdCardCacheDir"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btExrernalSdCardDir"
+                android:onClick="@{viewModel.getExternalSdCardCacheDir}"
+                android:text="sd card cahce dir" />
 
-        <TextView
-            android:id="@+id/tv_extrnal_cache_dir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/btGetExternalCacheDir"
-            android:gravity="center"
-            android:text="@{viewModel.tvExternalCacheDir}"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/tvExternalDir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btExternalDir"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/edFileData"
+                android:layout_toRightOf="@+id/btExternalDir"
+                android:gravity="center"
+                android:text="@{viewModel.tvExternalDir}"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:id="@+id/tv_load_external_dir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/btSaveInExternalCacheDir"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/btLoadExternalDir"
-            android:layout_toRightOf="@+id/btLoadExternalDir"
-            android:gravity="center"
-            android:text="@{viewModel.tvLoadExternalDir}"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/tvExternalCacheDir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btExrernalSdCardDir"
+                android:layout_alignEnd="@+id/tvExternalDir"
+                android:layout_alignRight="@+id/tvExternalDir"
+                android:layout_alignTop="@+id/btExternalCacheDir"
+                android:layout_toRightOf="@+id/btExternalCacheDir"
+                android:gravity="center"
+                android:text="@{viewModel.tvExternalCacheDir}"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:id="@+id/tv_load_external_cache_dir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btLoadExternalCacheDir"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/btLoadExternalCacheDir"
-            android:layout_toRightOf="@+id/btLoadExternalCacheDir"
-            android:gravity="center"
-            android:text="@{viewModel.tvLoadExternalCacheDir}"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/tvExternalSdCardDir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btExternalSdCardCacheDir"
+                android:layout_alignEnd="@+id/tvExternalCacheDir"
+                android:layout_alignRight="@+id/tvExternalCacheDir"
+                android:layout_below="@+id/btExternalCacheDir"
+                android:layout_toRightOf="@+id/btExrernalSdCardDir"
+                android:gravity="center"
+                android:text="@{viewModel.tvExternalSdCardDir}"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tvExternalSdCardCacheDir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btExternalSdCardCacheDir"
+                android:layout_alignEnd="@+id/tvExternalSdCardDir"
+                android:layout_alignRight="@+id/tvExternalSdCardDir"
+                android:layout_below="@+id/btExrernalSdCardDir"
+                android:layout_toRightOf="@+id/btExternalSdCardCacheDir"
+                android:gravity="center"
+                android:text="@{viewModel.tvExternalSdcardCacheDir}"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btExternalSdCardCacheDir"
+                android:layout_toLeftOf="@+id/button4"
+                android:onClick="@{viewModel.saveInExternaldDir}"
+                android:text="sve dir" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button"
+                android:onClick="@{viewModel.saveInExternalCacheDir}"
+                android:text="save cache dir" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/button4"
+                android:layout_alignEnd="@+id/button4"
+                android:layout_alignRight="@+id/button4"
+                android:layout_toRightOf="@+id/button"
+                android:onClick="@{viewModel.loadExternalDir}"
+                android:text="load dir" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/button2"
+                android:layout_toEndOf="@+id/button2"
+                android:layout_toRightOf="@+id/button2"
+                android:onClick="@{viewModel.loadExternalCahceDir}"
+                android:text="load cache dir" />
+
+            <Button
+                android:onClick="@{viewModel.saveInExternalSdCardDir}"
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/button6"
+                android:layout_alignStart="@+id/button6"
+                android:layout_alignTop="@+id/button3"
+                android:layout_toLeftOf="@+id/button8"
+                android:layout_toStartOf="@+id/button8"
+                android:text="save sd dir" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/button4"
+                android:layout_toLeftOf="@+id/button8"
+                android:onClick="@{viewModel.saveInExternalSdCardCacheDir}"
+                android:layout_toStartOf="@+id/button8"
+                android:text="save sd cache" />
+
+            <Button
+                android:id="@+id/button7"
+                android:onClick="@{viewModel.loadExternalSdCardDir}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/button5"
+                android:layout_toEndOf="@+id/button5"
+                android:layout_toRightOf="@+id/button5"
+                android:text="load sd dir" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="@{viewModel.loadExternalSdCardCacheDir}"
+                android:layout_alignTop="@+id/button6"
+                android:text="load sd cache" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
 </layout>
