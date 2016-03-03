@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.cook.animations.ActivityPropertyAnimations.SimplePropertyAnimationsViewModel" />
+            type="com.cook.animations.ActivityViewAnimations.ViewAnimationsViewModel" />
     </data>
 
     <RelativeLayout
@@ -17,52 +17,48 @@
             android:id="@+id/bt_alpha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/bt_translation"
-            android:layout_alignLeft="@+id/bt_rotate"
-            android:layout_alignStart="@+id/bt_rotate"
-            android:layout_marginBottom="33dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:onClick="@{viewModel.alphaClick}"
+            android:layout_marginTop="109dp"
             android:text="Alpha" />
 
         <Button
-            android:id="@+id/bt_translation"
+            android:id="@+id/bt_translate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/bt_rotate"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="52dp"
             android:onClick="@{viewModel.translation_X_Click}"
-            android:text="translation X" />
+            android:layout_below="@+id/bt_rotate"
+            android:layout_centerHorizontal="true"
+            android:text="Translate" />
 
         <Button
             android:id="@+id/bt_rotate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/bt_scale"
-            android:layout_alignStart="@+id/bt_scale"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/bt_alpha"
             android:onClick="@{viewModel.rotateClick}"
-            android:text="rotate" />
+            android:layout_centerHorizontal="true"
+            android:text="Rotate" />
 
         <Button
             android:id="@+id/bt_scale"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/bt_set"
-            android:layout_alignLeft="@+id/bt_set"
-            android:layout_alignStart="@+id/bt_set"
-            android:layout_marginBottom="40dp"
             android:onClick="@{viewModel.scaleClick}"
-            android:text="scale" />
+            android:layout_height="wrap_content"
+            android:text="Scale"
+            android:layout_below="@+id/bt_translate"
+            android:layout_alignLeft="@+id/bt_rotate"
+            android:layout_alignStart="@+id/bt_rotate" />
 
         <Button
             android:id="@+id/bt_set"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="47dp"
             android:onClick="@{viewModel.setClick}"
-            android:text="set" />
+            android:layout_height="wrap_content"
+            android:text="Set"
+            android:layout_below="@+id/bt_scale"
+            android:layout_alignLeft="@+id/bt_scale"
+            android:layout_alignStart="@+id/bt_scale" />
     </RelativeLayout>
 </layout>

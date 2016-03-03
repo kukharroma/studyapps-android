@@ -25,10 +25,11 @@ public class ActivityMain extends AppCompatActivity {
     public class MainActivityModelView {
 
         public void onProperyAnimationClick(View view) {
-            startActivity(new Intent(getApplicationContext(), ActivitySimplePropertyAnimations.class));
+            startActivity(new Intent(getApplicationContext(), ActivityPropertyAnimations.class));
         }
 
-
+        public void onViewAnimationClick(View view) {
+            startActivity(new Intent(getApplicationContext(), ActivityViewAnimations.class));
+        }
     }
-
 }

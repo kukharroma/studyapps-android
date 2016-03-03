@@ -4,13 +4,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.cook.animations.ActivityMain.MainActivityModelView"/>
+            type="com.cook.animations.ActivityMain.MainActivityModelView" />
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <Button
             android:id="@+id/bt_property_animations"
@@ -20,5 +20,14 @@
             android:layout_centerHorizontal="true"
             android:onClick="@{viewModel.onProperyAnimationClick}"
             android:text="property animations" />
+
+        <Button
+            android:id="@+id/bt_view_animations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_property_animations"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onViewAnimationClick}"
+            android:text="View Animations" />
     </RelativeLayout>
 </layout>

@@ -15,7 +15,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivitySimplePropertyAnimations"/>
+        <activity android:name=".ActivityPropertyAnimations"/>
+        <activity android:name=".ActivityViewAnimations"/>
     </application>
 
 </manifest>
