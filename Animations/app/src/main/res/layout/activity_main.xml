@@ -29,5 +29,14 @@
             android:layout_centerHorizontal="true"
             android:onClick="@{viewModel.onViewAnimationClick}"
             android:text="View Animations" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Layout Transitions"
+            android:onClick="@{viewModel.onLayoutTransitionsClick}"
+            android:id="@+id/button3"
+            android:layout_below="@+id/bt_view_animations"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </layout>

@@ -10,13 +10,14 @@
 
         <activity android:name=".ActivityMain">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivityPropertyAnimations"/>
-        <activity android:name=".ActivityViewAnimations"/>
+        <activity android:name=".ActivityPropertyAnimations" />
+        <activity android:name=".ActivityViewAnimations" />
+        <activity android:name=".ActivityLayoutTransitions" />
     </application>
 
 </manifest>

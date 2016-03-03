@@ -31,5 +31,9 @@ public class ActivityMain extends AppCompatActivity {
         public void onViewAnimationClick(View view) {
             startActivity(new Intent(getApplicationContext(), ActivityViewAnimations.class));
         }
+
+        public void onLayoutTransitionsClick(View view) {
+            startActivity(new Intent(getApplicationContext(), ActivityLayoutTransitions.class));
+        }
     }
 }
