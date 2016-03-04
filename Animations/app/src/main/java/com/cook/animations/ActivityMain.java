@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.cook.animations.databinding.ActivityMainBinding;
+import com.cook.animations.databinding.ActivityRequestLayoutBinding;
+import com.cook.animations.requestingLayout.ActivityTestRequestLayout;
 
 /**
  * Created by roma on 02.03.16.
@@ -34,6 +36,10 @@ public class ActivityMain extends AppCompatActivity {
 
         public void onLayoutTransitionsClick(View view) {
             startActivity(new Intent(getApplicationContext(), ActivityLayoutTransitions.class));
+        }
+
+        public void onRequstLayout(View view){
+            startActivity(new Intent(getApplicationContext(), ActivityTestRequestLayout.class));
         }
     }
 }

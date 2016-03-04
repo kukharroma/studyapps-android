@@ -38,5 +38,16 @@
             android:id="@+id/button3"
             android:layout_below="@+id/bt_view_animations"
             android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RequstLayout"
+            android:onClick="@{viewModel.onRequstLayout}"
+            android:id="@+id/bt_request_layout"
+            android:layout_below="@+id/button3"
+            android:layout_centerHorizontal="true" />
+
+
     </RelativeLayout>
 </layout>

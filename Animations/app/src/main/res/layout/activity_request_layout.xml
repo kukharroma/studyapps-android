@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cook.animations.requestingLayout.ActivityTestRequestLayout.RequestLayoutViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.add}"
+            android:text="Add" />
+
+        <Button
+            android:id="@+id/bt_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/bt_add"
+            android:layout_toRightOf="@+id/bt_add"
+            android:onClick="@{viewModel.delete}"
+            android:text="Delete" />
+
+        <Button
+            android:id="@+id/bt_request_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/bt_delete"
+            android:layout_toRightOf="@+id/bt_delete"
+            android:onClick="@{viewModel.requsetLayout}"
+            android:text="requset layout" />
+
+        <com.cook.animations.requestingLayout.CustomLayout
+            android:id="@+id/container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bt_add" />
+    </RelativeLayout>
+</layout>

@@ -18,6 +18,7 @@
         <activity android:name=".ActivityPropertyAnimations" />
         <activity android:name=".ActivityViewAnimations" />
         <activity android:name=".ActivityLayoutTransitions" />
+        <activity android:name=".requestingLayout.ActivityTestRequestLayout"/>
     </application>
 
 </manifest>
