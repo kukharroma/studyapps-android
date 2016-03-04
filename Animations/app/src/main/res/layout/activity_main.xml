@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.cook.animations.ActivityMain.MainActivityModelView" />
@@ -31,31 +32,40 @@
             android:text="View Animations" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Layout Transitions"
-            android:onClick="@{viewModel.onLayoutTransitionsClick}"
             android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/bt_view_animations"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onLayoutTransitionsClick}"
+            android:text="Layout Transitions" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RequstLayout"
-            android:onClick="@{viewModel.onRequstLayout}"
             android:id="@+id/bt_request_layout"
-            android:layout_below="@+id/button3"
-            android:layout_centerHorizontal="true" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Key Frame"
-            android:onClick="@{viewModel.onKeyFrame}"
+            android:layout_below="@+id/button3"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onRequstLayout}"
+            android:text="RequstLayout" />
+
+        <Button
             android:id="@+id/bt_key_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/bt_request_layout"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onKeyFrame}"
+            android:text="Key Frame" />
+
+        <Button
+            android:id="@+id/bt_cross_fade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_key_frame"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onCrossFade}"
+            android:text="CrossFade" />
 
 
     </RelativeLayout>

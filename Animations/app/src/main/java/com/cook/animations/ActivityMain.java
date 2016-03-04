@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.cook.animations.crossfading.ActivityCrossFading;
 import com.cook.animations.databinding.ActivityMainBinding;
 import com.cook.animations.databinding.ActivityRequestLayoutBinding;
 import com.cook.animations.keyframe.ActivityKeyFrame;
@@ -45,6 +46,10 @@ public class ActivityMain extends AppCompatActivity {
 
         public void onKeyFrame(View view){
             startActivity(new Intent(getApplicationContext(), ActivityKeyFrame.class));
+        }
+
+        public void onCrossFade(View view){
+            startActivity(new Intent(getApplicationContext(), ActivityCrossFading.class));
         }
     }
 }

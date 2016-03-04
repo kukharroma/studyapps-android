@@ -20,6 +20,7 @@
         <activity android:name=".ActivityLayoutTransitions" />
         <activity android:name=".requestingLayout.ActivityTestRequestLayout"/>
         <activity android:name=".keyframe.ActivityKeyFrame"/>
+        <activity android:name=".crossfading.ActivityCrossFading"/>
     </application>
 
 </manifest>
