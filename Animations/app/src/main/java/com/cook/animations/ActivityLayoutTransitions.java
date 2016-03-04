@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.cook.animations.databinding.ActivityLayoutTransitionsBinding;
 
@@ -29,34 +30,31 @@ public class ActivityLayoutTransitions extends AppCompatActivity {
     public class ActivityLayoutViewModel {
 
         public ActivityLayoutViewModel() {
-            for (int i = 0; i < 2; ++i) {
-                binding.container.addView(new ColoredView(getApplicationContext()));
-            }
-
             LayoutTransition transition = binding.container.getLayoutTransition();
             transition.enableTransitionType(LayoutTransition.CHANGING);
         }
 
         public void onAddItemClick(View view) {
-            binding.container.addView(new ColoredView(getApplicationContext()), 1);
+            int position = binding.container.getChildCount() != 0 ? binding.container.getChildCount() : 0;
+            binding.container.addView(new ColoredView(getApplicationContext()), position);
         }
 
         public void onDeleteItemClick(View view) {
             if (binding.container.getChildCount() > 0) {
-                binding.container.removeViewAt(Math.min(1, binding.container.getChildCount() - 1));
+                int position = binding.container.getChildCount() - 1;
+                binding.container.removeViewAt(position);
             }
         }
     }
-
 
     private static class ColoredView extends View {
 
         private boolean mExpanded = false;
 
-        private ViewGroup.LayoutParams mCompressedParams = new ViewGroup.LayoutParams(
+        private LinearLayout.LayoutParams mCompressedParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 50);
 
-        private ViewGroup.LayoutParams mExpandedParams = new ViewGroup.LayoutParams(
+        private LinearLayout.LayoutParams mExpandedParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 200);
 
         private ColoredView(Context context) {
