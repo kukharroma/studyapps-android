@@ -22,6 +22,7 @@ public class ActivityTestRequestLayout extends AppCompatActivity {
         setContentView(R.layout.activity_request_layout);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_request_layout);
         binding.setViewModel(new RequestLayoutViewModel());
+
     }
 
     public class RequestLayoutViewModel {

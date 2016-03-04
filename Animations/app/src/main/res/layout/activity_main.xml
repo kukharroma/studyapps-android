@@ -48,6 +48,15 @@
             android:layout_below="@+id/button3"
             android:layout_centerHorizontal="true" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Key Frame"
+            android:onClick="@{viewModel.onKeyFrame}"
+            android:id="@+id/bt_key_frame"
+            android:layout_below="@+id/bt_request_layout"
+            android:layout_centerHorizontal="true" />
+
 
     </RelativeLayout>
 </layout>

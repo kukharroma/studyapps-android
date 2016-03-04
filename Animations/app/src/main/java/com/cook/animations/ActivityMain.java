@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.cook.animations.databinding.ActivityMainBinding;
 import com.cook.animations.databinding.ActivityRequestLayoutBinding;
+import com.cook.animations.keyframe.ActivityKeyFrame;
 import com.cook.animations.requestingLayout.ActivityTestRequestLayout;
 
 /**
@@ -40,6 +41,10 @@ public class ActivityMain extends AppCompatActivity {
 
         public void onRequstLayout(View view){
             startActivity(new Intent(getApplicationContext(), ActivityTestRequestLayout.class));
+        }
+
+        public void onKeyFrame(View view){
+            startActivity(new Intent(getApplicationContext(), ActivityKeyFrame.class));
         }
     }
 }
