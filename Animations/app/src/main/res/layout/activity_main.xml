@@ -67,6 +67,14 @@
             android:onClick="@{viewModel.onCrossFade}"
             android:text="CrossFade" />
 
+        <Button
+            android:text="Image Viewer"
+            android:onClick="@{viewModel.onImageViewer}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_cross_fade"
+            android:layout_centerHorizontal="true" />
+
 
     </RelativeLayout>
 </layout>

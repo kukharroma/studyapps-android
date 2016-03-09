@@ -12,6 +12,7 @@ import com.cook.animations.databinding.ActivityMainBinding;
 import com.cook.animations.databinding.ActivityRequestLayoutBinding;
 import com.cook.animations.keyframe.ActivityKeyFrame;
 import com.cook.animations.requestingLayout.ActivityTestRequestLayout;
+import com.cook.animations.viewPicture.ActivityViewPicture;
 
 /**
  * Created by roma on 02.03.16.
@@ -50,6 +51,10 @@ public class ActivityMain extends AppCompatActivity {
 
         public void onCrossFade(View view){
             startActivity(new Intent(getApplicationContext(), ActivityCrossFading.class));
+        }
+
+        public void onImageViewer(View view){
+            startActivity(new Intent(getApplicationContext(), ActivityViewPicture.class));
         }
     }
 }

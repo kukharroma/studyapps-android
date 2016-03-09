@@ -8,11 +8,23 @@
             type="com.cook.animations.viewPicture.ActivityViewPicture.ViewPictureViewModel" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@android:color/black"
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/prevImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/nextImageView"
+            android:layout_width="match_parent"
+            android:onClick="@{viewModel.onNextImageClick}"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true" />
+    </FrameLayout>
 
 </layout>
