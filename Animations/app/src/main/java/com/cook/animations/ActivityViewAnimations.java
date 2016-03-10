@@ -1,5 +1,6 @@
 package com.cook.animations;
 
+import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,7 @@ public class ActivityViewAnimations extends AppCompatActivity {
     private TranslateAnimation translateAnimation;
     private RotateAnimation rotateAnimation;
     private ScaleAnimation scaleAnimation;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

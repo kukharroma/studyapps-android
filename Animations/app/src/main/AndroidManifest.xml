@@ -22,6 +22,7 @@
         <activity android:name=".keyframe.ActivityKeyFrame"/>
         <activity android:name=".crossfading.ActivityCrossFading"/>
         <activity android:name=".viewPicture.ActivityViewPicture"/>
+        <activity android:name=".multiplePropertiesSameTime.CurveMotionAnimationActivity"/>
     </application>
 
 </manifest>

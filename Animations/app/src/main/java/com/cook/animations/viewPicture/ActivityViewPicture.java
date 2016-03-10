@@ -70,7 +70,6 @@ public class ActivityViewPicture extends AppCompatActivity {
                     withEndAction(new TimerTask() {
                         @Override
                         public void run() {
-
                             currentDrawable = (currentDrawable + 1) % drawables.length;
                             int nextDrawableIndex = (currentDrawable + 1) % drawables.length;
                             binding.prevImageView.setImageDrawable(drawables[currentDrawable]);
