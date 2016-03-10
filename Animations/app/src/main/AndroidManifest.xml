@@ -18,11 +18,11 @@
         <activity android:name=".ActivityPropertyAnimations" />
         <activity android:name=".ActivityViewAnimations" />
         <activity android:name=".ActivityLayoutTransitions" />
-        <activity android:name=".requestingLayout.ActivityTestRequestLayout"/>
-        <activity android:name=".keyframe.ActivityKeyFrame"/>
-        <activity android:name=".crossfading.ActivityCrossFading"/>
-        <activity android:name=".viewPicture.ActivityViewPicture"/>
-        <activity android:name=".multiplePropertiesSameTime.CurveMotionAnimationActivity"/>
+        <activity android:name=".requestingLayout.ActivityTestRequestLayout" />
+        <activity android:name=".keyframe.ActivityKeyFrame" />
+        <activity android:name=".crossfading.ActivityCrossFading" />
+        <activity android:name=".viewPicture.ActivityViewPicture" />
+        <activity android:name=".anticipationOvershoot.ActivityAnticipationOvershoot" />
     </application>
 
 </manifest>

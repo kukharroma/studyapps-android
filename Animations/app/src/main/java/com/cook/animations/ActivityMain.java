@@ -7,9 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.cook.animations.anticipationOvershoot.ActivityAnticipationOvershoot;
 import com.cook.animations.crossfading.ActivityCrossFading;
 import com.cook.animations.databinding.ActivityMainBinding;
-import com.cook.animations.databinding.ActivityRequestLayoutBinding;
 import com.cook.animations.keyframe.ActivityKeyFrame;
 import com.cook.animations.requestingLayout.ActivityTestRequestLayout;
 import com.cook.animations.viewPicture.ActivityViewPicture;
@@ -55,6 +55,10 @@ public class ActivityMain extends AppCompatActivity {
 
         public void onImageViewer(View view){
             startActivity(new Intent(getApplicationContext(), ActivityViewPicture.class));
+        }
+
+        public void onOvershootClick(View view){
+            startActivity(new Intent(getApplicationContext(), ActivityAnticipationOvershoot.class));
         }
     }
 }
