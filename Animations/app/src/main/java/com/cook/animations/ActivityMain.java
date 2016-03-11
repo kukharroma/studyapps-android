@@ -7,7 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.cook.animations.anticipationOvershoot.ActivityAnticipationOvershoot;
+import com.cook.animations.anticipationOvershoot1.ActivityAnticipationOvershoot1;
+import com.cook.animations.anticipationOvershoot2.ActivityAnticipationOvershoot2;
 import com.cook.animations.crossfading.ActivityCrossFading;
 import com.cook.animations.databinding.ActivityMainBinding;
 import com.cook.animations.keyframe.ActivityKeyFrame;
@@ -41,24 +42,28 @@ public class ActivityMain extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), ActivityLayoutTransitions.class));
         }
 
-        public void onRequstLayout(View view){
+        public void onRequstLayout(View view) {
             startActivity(new Intent(getApplicationContext(), ActivityTestRequestLayout.class));
         }
 
-        public void onKeyFrame(View view){
+        public void onKeyFrame(View view) {
             startActivity(new Intent(getApplicationContext(), ActivityKeyFrame.class));
         }
 
-        public void onCrossFade(View view){
+        public void onCrossFade(View view) {
             startActivity(new Intent(getApplicationContext(), ActivityCrossFading.class));
         }
 
-        public void onImageViewer(View view){
+        public void onImageViewer(View view) {
             startActivity(new Intent(getApplicationContext(), ActivityViewPicture.class));
         }
 
-        public void onOvershootClick(View view){
-            startActivity(new Intent(getApplicationContext(), ActivityAnticipationOvershoot.class));
+        public void onOvershootClick1(View view) {
+            startActivity(new Intent(getApplicationContext(), ActivityAnticipationOvershoot1.class));
+        }
+
+        public void onOvershootClick2(View view) {
+            startActivity(new Intent(getApplicationContext(), ActivityAnticipationOvershoot2.class));
         }
     }
 }

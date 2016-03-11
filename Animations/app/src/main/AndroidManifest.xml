@@ -22,7 +22,8 @@
         <activity android:name=".keyframe.ActivityKeyFrame" />
         <activity android:name=".crossfading.ActivityCrossFading" />
         <activity android:name=".viewPicture.ActivityViewPicture" />
-        <activity android:name=".anticipationOvershoot.ActivityAnticipationOvershoot" />
+        <activity android:name=".anticipationOvershoot1.ActivityAnticipationOvershoot1" />
+        <activity android:name=".anticipationOvershoot2.ActivityAnticipationOvershoot2" />
     </application>
 
 </manifest>

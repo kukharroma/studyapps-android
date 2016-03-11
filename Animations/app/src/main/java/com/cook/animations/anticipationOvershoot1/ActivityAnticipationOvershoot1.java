@@ -1,4 +1,4 @@
-package com.cook.animations.anticipationOvershoot;
+package com.cook.animations.anticipationOvershoot1;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,20 +10,20 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 import com.cook.animations.R;
-import com.cook.animations.databinding.ActivityAnticipationOvershootBinding;
+import com.cook.animations.databinding.ActivityAnticipationOvershoot1Binding;
 
 /**
  * Created by roma on 10.03.16.
  */
-public class ActivityAnticipationOvershoot extends AppCompatActivity {
+public class ActivityAnticipationOvershoot1 extends AppCompatActivity {
 
-    private ActivityAnticipationOvershootBinding binding;
+    private ActivityAnticipationOvershoot1Binding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anticipation_overshoot);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_anticipation_overshoot);
+        setContentView(R.layout.activity_anticipation_overshoot1);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_anticipation_overshoot1);
         binding.setViewModel(new AnticipationOvershootViewModel());
     }
 

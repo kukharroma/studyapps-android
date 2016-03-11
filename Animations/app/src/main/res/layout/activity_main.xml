@@ -68,21 +68,31 @@
             android:text="CrossFade" />
 
         <Button
-            android:text="Image Viewer"
-            android:onClick="@{viewModel.onImageViewer}"
-            android:layout_width="wrap_content"
             android:id="@+id/bt_image_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bt_cross_fade"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onImageViewer}"
+            android:text="Image Viewer" />
 
         <Button
-            android:text="Anticipate Overshoot"
-            android:onClick="@{viewModel.onOvershootClick}"
+            android:id="@+id/bt_anticip_overshoot1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bt_image_view"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onOvershootClick1}"
+            android:text="Anticipate Overshoot 1" />
+
+        <Button
+            android:id="@+id/bt_anticip_overshoot2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_anticip_overshoot1"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel.onOvershootClick2}"
+            android:text="Anticipate Overshoot 2" />
 
     </RelativeLayout>
 </layout>
