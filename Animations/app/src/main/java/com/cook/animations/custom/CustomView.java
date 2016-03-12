@@ -2,19 +2,20 @@ package com.cook.animations.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.cook.animations.R;
 
 /**
  * Created by roma on 11.03.16.
  */
-public class CustomView extends View {
+public class CustomView extends ViewGroup {
 
     private boolean customShowText;
     private int labelPosition;
+    private Button button;
 
     public CustomView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -25,33 +26,14 @@ public class CustomView extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-    }
-
-    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(250, 250);
+//        setMeasuredDimension();
     }
 
-    public boolean isCustomShowText() {
-        return customShowText;
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
     }
 
-    public void setCustomShowText(boolean customShowText) {
-        this.customShowText = customShowText;
-        invalidate();
-        requestLayout();
-    }
 }
