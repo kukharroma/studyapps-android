@@ -17,6 +17,7 @@ import com.cook.customcontentprovider.database.DatabaseHelper;
 import com.cook.customcontentprovider.database.Tables;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.AUTHORITY;
 import static com.cook.customcontentprovider.provider.StudentProviderConstants.CONTENT_URI;
@@ -32,7 +33,7 @@ public class StudentProvider extends ContentProvider {
 
     private SQLiteDatabase db;
     private UriMatcher uriMatcher;
-    private static HashMap<String, String> STUDENTS_PROJECTION_MAP;
+    private static Map<String, String> STUDENTS_PROJECTION_MAP = new HashMap<>();
 
     @Override
     public boolean onCreate() {
@@ -42,7 +43,7 @@ public class StudentProvider extends ContentProvider {
         return (db != null);
     }
 
-    private void initMatcher(){
+    private void initMatcher() {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(AUTHORITY, STUDENTS_PATH, STUDENTS);
         uriMatcher.addURI(AUTHORITY, STUDENTS_PATH_ID, STUDENT_ID);
@@ -52,7 +53,6 @@ public class StudentProvider extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri, ContentValues values) {
         long rowID = db.insert(Tables.STUDENTS, "", values);
-
         if (rowID > 0) {
             Uri newUri = ContentUris.withAppendedId(CONTENT_URI, rowID);
             if (getContext() != null)
