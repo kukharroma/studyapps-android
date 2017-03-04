@@ -60,8 +60,6 @@ public class TestFragment extends Fragment {
         Log.e(this.getClass().getSimpleName(), "onStart()");
     }
 
-
-
     @Override
     public void onStop() {
         super.onStop();
