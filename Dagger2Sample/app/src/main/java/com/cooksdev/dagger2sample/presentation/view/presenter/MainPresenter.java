@@ -17,4 +17,6 @@ public class MainPresenter extends BasePresenter<BaseActivity> {
     public MainPresenter(GetUserUseCase userUseCase) {
         this.userUseCase = userUseCase;
     }
+
+
 }

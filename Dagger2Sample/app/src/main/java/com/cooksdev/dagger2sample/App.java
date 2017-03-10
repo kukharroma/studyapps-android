@@ -7,6 +7,10 @@ import android.support.annotation.NonNull;
 
 import com.cooksdev.dagger2sample.presentation.di.component.AppComponent;
 import com.cooksdev.dagger2sample.presentation.di.component.DaggerAppComponent;
+import com.cooksdev.dagger2sample.presentation.di.module.AppModule;
+import com.cooksdev.dagger2sample.presentation.di.module.DomainModule;
+import com.cooksdev.dagger2sample.presentation.di.module.NetworkModule;
+import com.cooksdev.dagger2sample.presentation.di.module.PresenterModule;
 
 public class App extends Application {
 
@@ -17,10 +21,6 @@ public class App extends Application {
         return (App) context.getApplicationContext();
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
 
     /**
      * Create AppComponent {@link AppComponent}
@@ -28,7 +28,12 @@ public class App extends Application {
      * @return {@link AppComponent} instance
      */
     private AppComponent createAppComponent() {
-        return DaggerAppComponent.builder().build();
+        return DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .domainModule(new DomainModule())
+                .networkModule(new NetworkModule())
+                .presenterModule(new PresenterModule())
+                .build();
     }
 
     /**

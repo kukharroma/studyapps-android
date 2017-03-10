@@ -4,8 +4,9 @@ package com.cooksdev.dagger2sample.presentation.core.presenter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public class BasePresenter<View> {
+import com.cooksdev.dagger2sample.presentation.core.view.BaseActivity;
 
+public class BasePresenter<View> {
     private View view;
 
     @Nullable
@@ -16,4 +17,5 @@ public class BasePresenter<View> {
     public void setView(@NonNull View view) {
         this.view = view;
     }
+
 }
