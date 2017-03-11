@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.cooksdev.dagger2sample.App;
+import com.cooksdev.dagger2sample.presentation.view.MainPresenter;
 
 import javax.inject.Singleton;
 
@@ -13,17 +14,22 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
+    private App app;
 
-    private final App app;
-
-    public AppModule(@NonNull App app) {
+    public AppModule(App app) {
         this.app = app;
     }
 
+    @Provides
     @NonNull
+    @Singleton
+    App provideContext() {
+        return app;
+    }
+
     @Provides
     @Singleton
-    Context provideContext() {
-        return app;
+    MainPresenter provideMainPresenter(MainPresenter presenter) {
+        return presenter;
     }
 }
